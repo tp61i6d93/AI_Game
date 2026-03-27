@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Neon Tetris</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Noto+Sans+TC:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="page-shell">
+    <header class="hero">
+      <div>
+        <p class="eyebrow">/flow spec + build by PM</p>
+        <h1>Neon Tetris</h1>
+        <p class="subtitle">我幫你定義了一版節奏偏爽快、畫面偏霓虹街機風的俄羅斯方塊。</p>
+      </div>
+      <div class="hero-actions">
+        <button id="startBtn">開始遊戲</button>
+        <button id="pauseBtn">暫停</button>
+        <button id="restartBtn" class="secondary">重新開始</button>
+      </div>
+    </header>
+
+    <main class="game-layout">
+      <section class="panel play-panel">
+        <div class="playfield-wrap">
+          <canvas id="board" width="300" height="600" aria-label="Tetris board"></canvas>
+          <div id="overlay" class="overlay visible">
+            <h2>準備好了嗎？</h2>
+            <p>方向鍵移動，↑ 旋轉，↓ 加速，空白鍵瞬降，P 暫停。</p>
+          </div>
+        </div>
+      </section>
+
+      <aside class="sidebar">
+        <section class="panel stats-panel">
+          <h2>遊戲資訊</h2>
+          <div class="stat-grid">
+            <div class="stat-card">
+              <span>分數</span>
+              <strong id="score">0</strong>
+            </div>
+            <div class="stat-card">
+              <span>等級</span>
+              <strong id="level">1</strong>
+            </div>
+            <div class="stat-card">
+              <span>消除行數</span>
+              <strong id="lines">0</strong>
+            </div>
+            <div class="stat-card">
+              <span>最佳紀錄</span>
+              <strong id="best">0</strong>
+            </div>
+          </div>
+        </section>
+
+        <section class="panel next-panel">
+          <h2>下一個方塊</h2>
+          <canvas id="next" width="160" height="160" aria-label="Next piece preview"></canvas>
+        </section>
+
+        <section class="panel guide-panel">
+          <h2>流程設計</h2>
+          <ol>
+            <li>按「開始遊戲」進入對局。</li>
+            <li>堆疊方塊並盡量一次消多行賺高分。</li>
+            <li>每消除 10 行升 1 級，整體下落速度加快。</li>
+            <li>方塊頂到出生區就結束，可立即重開。</li>
+          </ol>
+        </section>
+
+        <section class="panel controls-panel">
+          <h2>操作說明</h2>
+          <ul>
+            <li>← / →：左右移動</li>
+            <li>↑：旋轉</li>
+            <li>↓：快速下落</li>
+            <li>Space：瞬間落下</li>
+            <li>P：暫停 / 繼續</li>
+          </ul>
+        </section>
+      </aside>
+    </main>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
